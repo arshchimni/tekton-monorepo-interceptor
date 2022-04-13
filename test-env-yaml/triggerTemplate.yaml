@@ -1,0 +1,29 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: github-template
+spec:
+  params:
+    - name: gitrevision
+    - name: gitrepositoryurl
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: TaskRun
+      metadata:
+        generateName: github-run-
+      spec:
+        params:
+        - name: gitrepositoryurl
+          value: $(tt.params.gitrepositoryurl)
+        taskSpec:
+          params:
+            - name: gitrepositoryurl
+              type: string
+          steps:
+            - name: echo
+              image: alpine
+              script: |
+                echo "Echoing for $URL"
+              env:
+                - name: URL
+                  value: $(params.gitrepositoryurl)
