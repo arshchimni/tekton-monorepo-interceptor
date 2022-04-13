@@ -50,9 +50,6 @@ func (g *DiffImpl) GetChangedFiles(ctx context.Context, event *github.PushEvent)
 		if f.GetFilename() != "" {
 			changedFiles = append(changedFiles, f.GetFilename())
 		}
-		if f.GetPreviousFilename() != "" {
-			changedFiles = append(changedFiles, f.GetPreviousFilename())
-		}
 	}
 
 	return changedFiles, nil
