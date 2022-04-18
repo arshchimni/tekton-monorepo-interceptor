@@ -23,7 +23,7 @@ spec:
         name: "cel"
       params:
       - name: "filter"
-        value: "body.extensions.filesChanged.exists(i, i.startsWith('test-env-yaml/'))"  
+        value: "extensions.filesChanged.exists(i, i.startsWith('test-env-yaml/'))"  
   bindings:
     - ref: github-pr-binding
   template:

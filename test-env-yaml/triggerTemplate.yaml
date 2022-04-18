@@ -10,7 +10,7 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: TaskRun
       metadata:
-        generateName: github-run-
+        generateName: github-push-webhook-
       spec:
         params:
         - name: gitrepositoryurl

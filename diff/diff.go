@@ -31,7 +31,7 @@ func NewDiff(logger *zap.Logger) (Diff, error) {
 
 func (g *DiffImpl) GetChangedFiles(ctx context.Context, event *github.PushEvent) ([]string, error) {
 	repoName := event.Repo.GetFullName()
-
+	g.logger.Info(repoName)
 	split := strings.Split(repoName, "/")
 	if len(split) != 2 {
 		return nil, fmt.Errorf("repo name not in format <owner>/<repo> %s", repoName)
