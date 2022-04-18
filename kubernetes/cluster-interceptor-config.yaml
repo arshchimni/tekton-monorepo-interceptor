@@ -1,0 +1,12 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: ClusterInterceptor
+metadata:
+  name: tekton-monorepo-interceptor
+spec:
+  clientConfig:
+    service:
+      name: tekton-monorepo-interceptor
+      namespace: default
+      path: monorepo
+      port: 8080
+
