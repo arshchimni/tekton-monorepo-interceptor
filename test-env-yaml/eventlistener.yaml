@@ -5,25 +5,16 @@ metadata:
   name: github-listener
 spec:
   triggers:
-    - name: github-listener
-      interceptors:
-        - ref:
-            name: "github"
-          params:
-            - name: "secretRef"
-              value:
-                secretName: github-secret
-                secretKey: secretToken
-            - name: "eventTypes"
-              value: ["pull_request"]
-      bindings:
-        - ref: github-pr-binding
-      template:
-        ref: github-template
+    - triggerRef: trigger-custom
   resources:
     kubernetesResource:
       spec:
         template:
+          metadata:
+            labels:
+              key: "value"
+            annotations:
+              key: "value"
           spec:
             serviceAccountName: tekton-triggers-example-sa
             containers:

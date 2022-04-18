@@ -14,6 +14,7 @@ import (
 func (s *Server) InterceptGitPayload() http.HandlerFunc {
 
 	return func(w http.ResponseWriter, req *http.Request) {
+		s.logger.Info("Request received by the interceptor")
 		b, err := io.ReadAll(req.Body)
 		if err != nil {
 			s.respondErr(w, 500, codes.Internal, err)
@@ -27,6 +28,8 @@ func (s *Server) InterceptGitPayload() http.HandlerFunc {
 			return
 		}
 		filesChanged, err := s.diff.GetChangedFiles(req.Context(), event)
+
+		s.logger.Debug("The list of changed files in the commit", zap.Strings("files", filesChanged))
 
 		if err != nil {
 			s.respondErr(w, 500, codes.Internal, err)
