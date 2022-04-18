@@ -2,6 +2,7 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
   name: github-template
+  namespace: tekton-test
 spec:
   params:
     - name: gitrevision
@@ -11,6 +12,7 @@ spec:
       kind: TaskRun
       metadata:
         generateName: github-push-webhook-
+        namespace: tekton-test
       spec:
         params:
         - name: gitrepositoryurl

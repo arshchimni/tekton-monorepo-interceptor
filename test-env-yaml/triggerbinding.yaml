@@ -2,6 +2,7 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
   name: github-pr-binding
+  namespace: tekton-test
 spec:
   params:
   - name: gitrevision
