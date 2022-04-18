@@ -22,6 +22,6 @@ spec:
           - name: LOG_LEVEL
             value: "DEBUG"
         ports:
-        - containerPort: 8080
+        - containerPort: 9090
         resources: {}
 status: {}

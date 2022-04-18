@@ -8,5 +8,5 @@ spec:
       name: tekton-monorepo-interceptor
       namespace: default
       path: monorepo
-      port: 8080
+      port: 9090
 
