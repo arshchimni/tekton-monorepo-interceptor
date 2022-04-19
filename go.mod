@@ -3,7 +3,9 @@ module github.com/arshchimni/tekton-monorepo-interceptor
 go 1.17
 
 require (
+	github.com/stretchr/testify v1.7.0
 	github.com/tektoncd/triggers v0.19.1
+	github.com/tj/assert v0.0.3
 	go.uber.org/zap v1.21.0
 	google.golang.org/grpc v1.44.0
 )
@@ -13,6 +15,7 @@ require (
 	contrib.go.opencensus.io/exporter/prometheus v0.4.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
+	github.com/antlr/antlr4 v0.0.0-20200503195918-621b933c7a7f // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/blendle/zapdriver v1.3.1 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.3.0 // indirect
@@ -30,6 +33,7 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/google/cel-go v0.7.3 // indirect
 	github.com/google/go-cmp v0.5.7 // indirect
 	github.com/google/go-containerregistry v0.8.1-0.20220211173031-41f8d92709b7 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -45,10 +49,12 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/prometheus/statsd_exporter v0.21.0 // indirect
+	github.com/stoewer/go-strcase v1.2.0 // indirect
 	github.com/tektoncd/pipeline v0.33.0 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
