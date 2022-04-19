@@ -58,5 +58,6 @@ func (s *Server) GracefulStop(ctx context.Context) error {
 
 // registerHandlers registers handler to the default server mux.
 func (s *Server) registerHandlers() {
+	s.logger.Info("registering handlers for HTTP server")
 	s.mux.Handle("/monorepo", s.InterceptGitPayload())
 }

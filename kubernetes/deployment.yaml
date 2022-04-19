@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tekton-monorepo-interceptor
+  name: tekton-monorepo-interceptor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tekton-monorepo-interceptor
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: tekton-monorepo-interceptor
+    spec:
+      containers:
+      - image: ko://github.com/arshchimni/tekton-monorepo-interceptor
+        name: tekton-monorepo-interceptor
+        env:
+          - name: LOG_LEVEL
+            value: "DEBUG"
+        ports:
+        - containerPort: 9090
+        resources: {}
+

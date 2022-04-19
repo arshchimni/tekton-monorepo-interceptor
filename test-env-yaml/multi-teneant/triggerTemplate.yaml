@@ -1,7 +1,8 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: github-template-default
+  name: github-template
+  namespace: tekton-test
 spec:
   params:
     - name: gitrevision
@@ -10,7 +11,8 @@ spec:
     - apiVersion: tekton.dev/v1beta1
       kind: TaskRun
       metadata:
-        generateName: github-push-webhook-
+        generateName: github-hello-webhook-
+        namespace: tekton-test
       spec:
         params:
         - name: gitrepositoryurl
@@ -24,7 +26,7 @@ spec:
               image: alpine
               script: |
                 echo "Echoing for $URL"
-                echo default
+                echo hellooooooooooooo
               env:
                 - name: URL
                   value: $(params.gitrepositoryurl)

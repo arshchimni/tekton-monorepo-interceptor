@@ -1,0 +1,34 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: Trigger
+metadata:
+  name: trigger-custom
+  namespace: tekton-test
+  labels:
+    foo: bar
+spec:
+  serviceAccountName: tekton-test-trigger-sa
+  interceptors: 
+    - ref:
+        name: "github"
+      params:
+        - name: "secretRef"
+          value:
+            secretName: github-secret
+            secretKey: secretToken
+        - name: "eventTypes"
+          value: ["push"]
+    - name: "Extracting the changed files"
+      ref:
+        name: "tekton-monorepo-interceptor"
+        kind: ClusterInterceptor
+        apiVersion: triggers.tekton.dev/v1alpha1
+    - name: "filter trigger for folder"
+      ref:
+        name: "cel"
+      params:
+      - name: "filter"
+        value: "extensions.filesChanged.exists(i, i.startsWith('test-env-yaml/'))"  
+  bindings:
+    - ref: github-pr-binding
+  template:
+    ref: github-template
