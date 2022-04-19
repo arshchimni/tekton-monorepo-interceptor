@@ -1,0 +1,29 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: triggercr-role
+  namespace: tekton-test
+rules:
+- apiGroups: ["tekton.dev"]
+  resources: ["pipelineruns", "pipelineresources", "taskruns"]
+  verbs: ["create"]
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tekton-test-trigger-sa
+  namespace: tekton-test
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: triggercr-rolebinding
+  namespace: tekton-test
+subjects:
+- kind: ServiceAccount
+  name: tekton-test-trigger-sa
+  namespace: tekton-test
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: triggercr-role

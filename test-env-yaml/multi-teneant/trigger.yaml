@@ -1,12 +1,13 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: Trigger
 metadata:
-  name: trigger-custom-default
+  name: trigger-custom
+  namespace: tekton-test
   labels:
-    foo: bar 
+    foo: bar
 spec:
-  serviceAccountName: default-trigger-sa
-  interceptors:
+  serviceAccountName: tekton-test-trigger-sa
+  interceptors: 
     - ref:
         name: "github"
       params:
@@ -28,6 +29,6 @@ spec:
       - name: "filter"
         value: "extensions.filesChanged.exists(i, i.startsWith('test-env-yaml/'))"  
   bindings:
-    - ref: github-pr-binding-default
+    - ref: github-pr-binding
   template:
-    ref: github-template-default
+    ref: github-template

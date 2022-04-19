@@ -4,8 +4,13 @@ kind: EventListener
 metadata:
   name: github-listener
 spec:
-  triggers:
-    - triggerRef: trigger-custom
+  serviceAccountName: tekton-triggers-example-sa
+  namespaceSelector:
+    matchNames:
+    - "*"
+  labelSelector:
+    matchLabels:
+      foo: bar
   resources:
     kubernetesResource:
       spec:
