@@ -3,11 +3,11 @@ module github.com/arshchimni/tekton-monorepo-interceptor
 go 1.17
 
 require (
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.8.0
 	github.com/tektoncd/triggers v0.19.1
 	github.com/tj/assert v0.0.3
 	go.uber.org/zap v1.21.0
-	google.golang.org/grpc v1.44.0
+	google.golang.org/grpc v1.47.0
 )
 
 require (
@@ -52,6 +52,7 @@ require (
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/prometheus/statsd_exporter v0.21.0 // indirect
+	github.com/stretchr/objx v0.4.0 // indirect
 	github.com/tektoncd/pipeline v0.33.0 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20220112180741-5e0467b6c7ce // indirect
@@ -69,7 +70,7 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/api v0.22.5 // indirect
 	k8s.io/apiextensions-apiserver v0.22.5 // indirect
 	k8s.io/apimachinery v0.22.5 // indirect

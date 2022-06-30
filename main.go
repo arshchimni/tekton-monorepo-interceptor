@@ -15,7 +15,6 @@ import (
 )
 
 func main() {
-
 	logLevel := os.Getenv("LOG_LEVEL")
 	if logLevel == "" {
 		logLevel = "INFO"
